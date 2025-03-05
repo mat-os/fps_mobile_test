@@ -1,5 +1,7 @@
 using Game.Scripts.Core.Update;
 using Game.Scripts.Infrastructure.Services;
+using Game.Scripts.Infrastructure.States;
+using Game.Scripts.Services;
 using Game.Scripts.UI.Screens.Serviсes;
 using UnityEngine;
 using Zenject;
@@ -21,11 +23,24 @@ namespace Game.Scripts.Initialization.ZenjectInstallers
             
             Container.Bind<UpdateService>().FromInstance(_updateService).AsSingle();
 
-            #endregion      
+            Container.Bind<LevelBuilderService>().AsSingle();
+            Container.Bind<LevelDataService>().AsSingle();
+
+            #endregion
+
+            #region Level
+
+            Container.Bind<ShelfFillerService>().AsSingle();
+            Container.Bind<GarageService>().AsSingle();
+
+            #endregion
             
             #region Player
             
+            Container.Bind<PlayerService>().AsSingle();
             
+            Container.BindInterfacesAndSelfTo<ItemSelectService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ItemPickupService>().AsSingle();
             
             #endregion
 

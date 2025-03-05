@@ -1,14 +1,7 @@
-/*using System;
+using System;
 using Configs;
 using Game.Scripts.Configs;
-using Game.Scripts.Configs.Vfx;
-using Game.Scripts.Core.Update;
-using Game.Scripts.Customization;
-using Game.Scripts.Infrastructure.LevelStateMachin;
-using Game.Scripts.Infrastructure.Services;
-using Game.Scripts.Infrastructure.Services.Vfx;
 using Game.Scripts.LevelElements.Player;
-using PG;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -27,20 +20,21 @@ namespace Game.Scripts.Infrastructure.States
         
         [Inject] private DiContainer _container;
         private readonly CompositeDisposable _disposable = new CompositeDisposable();
+        private PrefabRepository _prefabRepository;
 
         [Inject]
-        public PlayerService()
+        public PlayerService(GameConfig gameConfig, PrefabRepository prefabRepository)
         {
+            _prefabRepository = prefabRepository;
             _gameConfig = gameConfig;
         }
-        public PlayerView CreatePlayer(Transform playerRoot, 
-            Transform playerConstraintTarget,
-            bool isFreesPlayerPositionX)
+        public PlayerView CreatePlayer(Transform playerRoot)
         {
-            var playerView = _customizationShopService.GetCurrentPlayerModelConfig().PlayerView;
-            _playerView = Object.Instantiate(playerView, playerRoot);
-            _playerHumanoid = new PlayerHumanoid(_playerView, _gameConfig.PlayerConfig, playerConstraintTarget);
+            _playerView = Object.Instantiate(_prefabRepository.PlayerView, playerRoot);
+            _playerView.transform.SetPositionAndRotation(playerRoot.transform.position, playerRoot.transform.rotation);
+            _playerHumanoid = new PlayerHumanoid(_playerView);
             _container.Inject(_playerHumanoid);
+            _playerHumanoid.Initialize();
             OnPlayerHumanoidCreated?.Invoke(_playerHumanoid);
             
             return _playerView;
@@ -70,4 +64,4 @@ namespace Game.Scripts.Infrastructure.States
             UnsubscribeEvents();
         }
     }
-}*/
+}

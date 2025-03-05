@@ -6,6 +6,7 @@ using Game.Scripts.Infrastructure.GameStateMachine;
 using Game.Scripts.Infrastructure.GameStateMachine.States;
 using Game.Scripts.Infrastructure.LevelStateMachin;
 using Game.Scripts.Infrastructure.LevelStateMachin.States;
+using Game.Scripts.UI.Screens.Pages;
 
 namespace Game.Scripts.UI.Screens.Serviсes
 {
@@ -47,19 +48,15 @@ namespace Game.Scripts.UI.Screens.Serviсes
             {
                 case GameLoadingState:
                     CloseAll();
-                    //_pageService.ShowScreen<GameLoadingPage>();
+                    _pageService.ShowScreen<GameLoadingPage>();
                     break;
                 case LoadingLevelState:
                     CloseAll();
-                    //_pageService.ShowScreen<LoadingLevelPage>();
+                    _pageService.ShowScreen<LoadingLevelPage>();
                     break;
                 case LobbyState:
                     CloseAll();
-                    //_pageService.ShowScreen<LobbyPage>();
-                    break;
-                case LevelState:
-                    //CloseAll();
-                    //_popupService.ShowScreen<MissionStartInfoPopup>();
+                    _pageService.ShowScreen<LobbyPage>();
                     break;
             }
         }
@@ -70,7 +67,7 @@ namespace Game.Scripts.UI.Screens.Serviсes
             {
                 case PlayLevelState:
                     CloseAll();
-                    //_pageService.ShowScreen<GameplayPage>();
+                    _pageService.ShowScreen<GameplayPage>();
                     break;
                 case CompleteLevelState:
                     CloseAll();

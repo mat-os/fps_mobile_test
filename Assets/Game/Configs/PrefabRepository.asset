@@ -12,22 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4034e4b7137a42b59c415317f03bf33a, type: 3}
   m_Name: PrefabRepository
   m_EditorClassIdentifier: 
+  <PlayerView>k__BackingField: {fileID: 8586366576639465847, guid: 49312195a8390fe40944669db7f89ff4, type: 3}
   <ShelfItems>k__BackingField:
-  - <ItemPrefab>k__BackingField: {fileID: 2177264523709419960, guid: 27fc8a5c37d777e47b5613f47bc29465, type: 3}
+  - <ItemPrefab>k__BackingField: {fileID: 4826005248754193831, guid: 27fc8a5c37d777e47b5613f47bc29465, type: 3}
     <PossibleColors>k__BackingField:
     - {r: 0.8113208, g: 0, b: 0, a: 1}
     - {r: 0, g: 1, b: 0.082378626, a: 1}
     - {r: 1, g: 0.6101181, b: 0, a: 1}
     - {r: 1, g: 0, b: 0.85180044, a: 1}
     - {r: 0, g: 0.7136581, b: 1, a: 1}
-  - <ItemPrefab>k__BackingField: {fileID: 7031036027201485059, guid: 5d70b45fe8a664a4f9861d402ed21d67, type: 3}
+  - <ItemPrefab>k__BackingField: {fileID: 4421719803530181916, guid: 5d70b45fe8a664a4f9861d402ed21d67, type: 3}
     <PossibleColors>k__BackingField:
     - {r: 0.8113208, g: 0, b: 0, a: 1}
     - {r: 0, g: 1, b: 0.082378626, a: 1}
     - {r: 1, g: 0.6101181, b: 0, a: 1}
     - {r: 1, g: 0, b: 0.85180044, a: 1}
     - {r: 0, g: 0.7136581, b: 1, a: 1}
-  - <ItemPrefab>k__BackingField: {fileID: 2611069230665933849, guid: ff8a1d536f42ca744897fac283f576bc, type: 3}
+  - <ItemPrefab>k__BackingField: {fileID: 8715091011474497542, guid: ff8a1d536f42ca744897fac283f576bc, type: 3}
     <PossibleColors>k__BackingField:
     - {r: 0.8113208, g: 0, b: 0, a: 1}
     - {r: 0, g: 1, b: 0.082378626, a: 1}

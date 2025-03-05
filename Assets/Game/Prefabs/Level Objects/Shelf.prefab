@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2448570643427431361}
+  - component: {fileID: 8781463758381191705}
   m_Layer: 0
   m_Name: Shelf
   m_TagString: Untagged
@@ -36,6 +37,31 @@ Transform:
   - {fileID: 3921171349149956896}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8781463758381191705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276706132384673803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90eff03b609c4478ac34af39563df79b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <SpawnPoints>k__BackingField:
+  - {fileID: 1473515209639762644}
+  - {fileID: 755481764764928264}
+  - {fileID: 7621536348596430804}
+  - {fileID: 1119769449628753239}
+  - {fileID: 8675603263513299725}
+  - {fileID: 5718433318860503115}
+  - {fileID: 4314553027821647215}
+  - {fileID: 272590674206162077}
+  - {fileID: 6614810100501502413}
+  - {fileID: 3788371245561155226}
+  - {fileID: 7800125588011860262}
+  - {fileID: 209289006909592245}
 --- !u!1 &1327881442857806094
 GameObject:
   m_ObjectHideFlags: 0

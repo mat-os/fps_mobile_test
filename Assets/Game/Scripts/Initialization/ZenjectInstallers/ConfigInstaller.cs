@@ -11,6 +11,7 @@ namespace Game.Scripts.Initialization.ZenjectInstallers
         [SerializeField, Required]private GameConfig _gameConfig;
         [SerializeField, Required]private UIConfig _uiConfig;
         [SerializeField, Required]private PrefabRepository _prefabRepository;
+        [SerializeField, Required]private LevelsRepository _levelsRepository;
 
         
         public override void InstallBindings()
@@ -18,6 +19,7 @@ namespace Game.Scripts.Initialization.ZenjectInstallers
             Container.Bind<GameConfig>().FromInstance(_gameConfig).AsSingle();
             Container.Bind<UIConfig>().FromInstance(_uiConfig).AsSingle();
             Container.Bind<PrefabRepository>().FromInstance(_prefabRepository).AsSingle();
+            Container.Bind<LevelsRepository>().FromInstance(_levelsRepository).AsSingle();
         }
     }
 }

@@ -13,4 +13,5 @@ namespace Game.Scripts.Infrastructure
     }
     
     public class StartPlayLevelEvent { }
+    public class PlayerPickupItemEvent { }
 }

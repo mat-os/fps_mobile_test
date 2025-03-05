@@ -1,131 +1,71 @@
 using System;
-using System.Collections;
-using Game.Scripts.Infrastructure.Bootstrapper;
-using Game.Scripts.Utils;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Game.Scripts.Utils;
 
 namespace Game.Scripts.Infrastructure.Services
 {
     public class InputService : IDisposable
     {
-        private readonly ICoroutineRunnerService _coroutineRunnerService = CoroutineRunner.Instance;
-        private readonly float _screenWidth = Screen.width;
-
         private InputHandler _inputHandler;
+        
+        private readonly float _screenWidth = Screen.width;
+        private readonly float _sensitivity = 0.1f;
+        
+        public Vector2 LookDelta { get; private set; }
+
+        private Vector2 _startTouchPos;
+        
         private bool _isActive;
-        private float _oldXPosition;
-        private Vector3 _screenInput;
-        private Coroutine _touchHoldCoroutine;
-        private bool _isPointerHandled = false;
-
-        public Vector3 InputVector
-        {
-            get
-            {
-                Vector3 worldInput = Vector3.zero;
-
-                worldInput.x = (_screenInput.x - _oldXPosition) / _screenWidth;
-                worldInput.z = _screenInput.z;
-                return worldInput;
-            }
-        }
-
 
         public void SetInputHandler(InputHandler inputHandler)
         {
             _inputHandler = inputHandler; 
-            
             _inputHandler.OnDown += OnDown_Handler;
             _inputHandler.OnUp += OnUp_Handler;
+            _inputHandler.OnDragEvent += OnDrag_Handler;
         }
         
         public void EnableInput(bool isActive)
         {
-            Debug.Log("[INPUT] EnableInput called " + isActive);
-            if (isActive)
-            {
-                _isActive = true;
-            }
-            else
-            {
-                _isActive = false;
-
-                if (_touchHoldCoroutine != null)
-                    _coroutineRunnerService.StopCoroutine(_touchHoldCoroutine);
-
-                _screenInput = Vector3.zero;
-                _oldXPosition = 0;
-            }
+            _isActive = isActive;
             _inputHandler.gameObject.SetActive(_isActive);
         }
 
         private void OnDown_Handler(PointerEventData eventData)
         {
-            if (!_isActive)
+            if (!_isActive) 
                 return;
 
-            if(_isPointerHandled)
-                return;
-
-            _isPointerHandled = true;
-            
-            _oldXPosition = _screenInput.x == 0 ? eventData.position.x : _screenInput.x;
-            _screenInput.x = eventData.position.x;
-            _screenInput.z = 1f;
-
-            _touchHoldCoroutine = _coroutineRunnerService.StartCoroutine(Coroutine_HoldButton());
+            _startTouchPos = eventData.position; 
         }
 
         private void OnUp_Handler(PointerEventData eventData)
         {
-            if (!_isActive)
+            if (!_isActive) 
                 return;
-            
-            _isPointerHandled = false;
 
-            if (_touchHoldCoroutine != null)
-                _coroutineRunnerService.StopCoroutine(_touchHoldCoroutine);
-
-            _oldXPosition = 0f;
-            _screenInput.x = 0f;
-            _screenInput.z = 0f;
+            LookDelta = Vector2.zero;
         }
 
-        private IEnumerator Coroutine_HoldButton()
+        private void OnDrag_Handler(PointerEventData eventData)
         {
-            while (true)
-            {
-                if (!_isActive)
-                    yield return null;
+            if (!_isActive) 
+                return;
 
-                _oldXPosition = _screenInput.x;
+            Vector2 touchDelta = eventData.position - _startTouchPos;
+            LookDelta = new Vector2(touchDelta.x / _screenWidth, touchDelta.y / _screenWidth) * _sensitivity;
 
-                #if UNITY_EDITOR
-                
-                _screenInput.x = Input.mousePosition.x;
-                
-                #else
-                
-                if (Input.touches.Length != 0)
-                {
-                    _screenInput.x = Input.touches[0].position.x;
-                }
-                
-                #endif
-
-                _screenInput.z = 1;
-                
-                yield return null;
-            }
+            _startTouchPos = eventData.position;
         }
-        
+
         public void Dispose()
         {
             if (_inputHandler != null)
             {
                 _inputHandler.OnDown -= OnDown_Handler;
                 _inputHandler.OnUp -= OnUp_Handler;
+                _inputHandler.OnDragEvent -= OnDrag_Handler;
             }
         }
     }

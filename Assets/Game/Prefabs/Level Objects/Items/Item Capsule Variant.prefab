@@ -159,16 +159,55 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9148811971731664530, guid: cc50be2e31e68f24d9650f8d4db04d36, type: 3}
+      propertyPath: <Collider>k__BackingField
+      value: 
+      objectReference: {fileID: 8074197191282025064}
+    - target: {fileID: 9148811971731664530, guid: cc50be2e31e68f24d9650f8d4db04d36, type: 3}
+      propertyPath: <Renderer>k__BackingField
+      value: 
+      objectReference: {fileID: 2073069522103337325}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3898210826517290451, guid: cc50be2e31e68f24d9650f8d4db04d36, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5333868274502755735}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2466077845844175501, guid: cc50be2e31e68f24d9650f8d4db04d36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3622106736992513053}
   m_SourcePrefab: {fileID: 100100000, guid: cc50be2e31e68f24d9650f8d4db04d36, type: 3}
 --- !u!4 &727133597477578470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3898210826517290451, guid: cc50be2e31e68f24d9650f8d4db04d36, type: 3}
   m_PrefabInstance: {fileID: 4327526241885371189}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2177264523709419960 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2466077845844175501, guid: cc50be2e31e68f24d9650f8d4db04d36, type: 3}
+  m_PrefabInstance: {fileID: 4327526241885371189}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &3622106736992513053
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2177264523709419960}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.24654229
+  m_Height: 0.81580323
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.31, z: 0}

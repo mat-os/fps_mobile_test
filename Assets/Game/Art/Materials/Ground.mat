@@ -39,11 +39,11 @@ Material:
     m_Floats:
     - _Emission: 0
     - _Matcap_Intensity: 0
-    - _RampSmooth: 0.413
+    - _RampSmooth: 0.401
     - _RampThreshold: 0.5
     - __dirty: 1
     m_Colors:
-    - _Color: {r: 0.55695516, g: 0.6698113, b: 0.5023585, a: 1}
+    - _Color: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
     - _ShadingColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
-    - _ShadowColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ShadowColor: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
   m_BuildTextureStacks: []

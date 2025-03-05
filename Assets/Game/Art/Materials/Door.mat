@@ -43,7 +43,7 @@ Material:
     - _RampThreshold: 0.5
     - __dirty: 1
     m_Colors:
-    - _Color: {r: 0.5435208, g: 0.5849056, b: 0.5771425, a: 1}
+    - _Color: {r: 0.4265057, g: 1, b: 0.4009434, a: 1}
     - _ShadingColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
     - _ShadowColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
